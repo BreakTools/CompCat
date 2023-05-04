@@ -1,4 +1,4 @@
-"""CompCat V0.95, developed by Mervin van Brakel. Icon art by Roos ten Hoedt.
+"""CompCat V1.0, developed by Mervin van Brakel. Icon art by Roos ten Hoedt.
 Extra thanks to Gilles Vink for the code reviews.
 """
 
@@ -116,7 +116,10 @@ class CompCatWindow(QtWidgets.QMainWindow):
         self.error_displayer.setWordWrap(True)
         self.import_error_credits_layout.addWidget(self.error_displayer)
 
-        self.credits = QtWidgets.QLabel("CompCat V0.95 | By Mervin van Brakel")
+        self.credits = QtWidgets.QLabel(
+            "CompCat V1.0 | A <a href=\"https://www.breaktools.info\" style=\"color: grey;\">BreakTool</a> by <a href=\"https://www.linkedin.com/in/mervin-van-brakel/\" style=\"color: grey;\">Mervin van Brakel</a>"
+            )
+        self.credits.setOpenExternalLinks(True)
         self.import_error_credits_layout.addWidget(self.credits)
 
         return self.import_error_credits_layout
@@ -227,7 +230,7 @@ class CompCatWindow(QtWidgets.QMainWindow):
         )
     
         if self.path_to_file[0] == "":
-            self.error_displayer.setText("CompCat couldn't download the cat image because the file path is not set correctly.")
+            self.error_displayer.setText("CompCat couldn't download the cat image because the file path was not set correctly.")
         else:
             self._get_new_download_then_import_worker()
 
@@ -243,13 +246,13 @@ class CompCatWindow(QtWidgets.QMainWindow):
 
     def _download_then_import(self):
         """Function that downloads the cat file to a location the user chooses."""
-        self.has_succesfully_downloaded = True
 
         try:
             urllib.request.urlretrieve(
                 f"https://cataas.com{self.cat_parsed_JSON['url']}",
                 f"{self.path_to_file[0]}",
             )
+            self.has_succesfully_downloaded = True
 
         except PermissionError:
             self.has_succesfully_downloaded = False
