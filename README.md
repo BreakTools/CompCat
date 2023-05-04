@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/63094424/236290871-3ab50968-2470-4c2f-
 
 ---
 ### :cat: Features
-- Browse a near infinite amount of cats thanks to [CATAAS.com](https://cataas.com/#/)
+- Browse a near infinite amount of cats right inside Nuke thanks to [CATAAS.com](https://cataas.com/#/)
 - Download the images or gifs and import them directly into your comp
 
 ---
