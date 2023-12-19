@@ -179,7 +179,7 @@ class CompCatWindow(QtWidgets.QMainWindow):
             self.cat_parsed_JSON = json.loads(self.cat_JSON)
 
             self.catDownload = urllib.request.urlopen(
-                f"https://cataas.com{self.cat_parsed_JSON['url']}"
+                f"https://cataas.com/cat/{self.cat_parsed_JSON['_id']}?width={self.new_cat_size_slider.value()}"
             )
 
             self.catDownloadRead = self.catDownload.read()
